@@ -1,0 +1,227 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>aleef</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="goToSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button (click)="goToCart()">
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class=" ">
+  <!-- slider on top-->
+  <div class="min-h">
+
+
+    <ion-slides pager autoplay="2000" *ngIf="displaySlides" class="slide-image">
+
+      <ion-slide *ngFor="let slide of slides">
+        <!--<img-loader src="{{ slide.image }}" class="slider-img" useImg></img-loader>-->
+      </ion-slide>
+
+    </ion-slides>
+  </div>
+  <!--list categories-->
+  <ion-list class=" frame-cats">
+    <ion-row>
+      <!--<ion-col *ngFor="let cat of categories | slice:0:3; let i = index" (click)="viewCategory(cat)">-->
+      <!--<img src="{{ cat.image }}" alt="">-->
+      <!--<div text-center>{{ cat.name }}</div>-->
+      <!--</ion-col>-->
+      <ion-col text-center (click)="viewCategory({category_id:83,name:'Dogs'})">
+        <img src="assets/img/dog.png" class="cat-image" alt="">
+        <div text-center class="cat-name">Dogs</div>
+      </ion-col>
+      <ion-col text-center (click)="viewCategory({category_id:81,name:'Cats'})">
+        <img src="assets/img/cat.png" class="cat-image" alt="">
+        <div text-center class="cat-name">Cats</div>
+      </ion-col>
+
+      <ion-col text-center (click)="viewCategory({category_id:88,name:'Birds'})">
+        <img src="assets/img/bird.png" class="cat-image" alt="">
+        <div text-center class="cat-name">Birds</div>
+      </ion-col>
+
+      <ion-col text-center (click)="goToCats()">
+        <img src="assets/img/list.png" class="cat-image" alt="">
+        <div text-center class="cat-name">All categories</div>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+
+
+  <div class="min-h">
+    <div class="frame">
+      <!--<h4 text-center> {{ 'Our Offers' | translate }}</h4>-->
+
+      <ion-row class="slide-product" text-center>
+        <ion-col *ngIf="!displayFeatured" text-center>
+          <ion-spinner text-center ></ion-spinner>
+        </ion-col>
+      </ion-row>
+      <ion-slides autoplay="5000" *ngIf="displayFeatured" class="slide-product" slidesPerView="2.5" >
+
+        <ion-slide *ngFor="let item of featuredProducts" class="product product-slide" (click)="viewItem(item)"
+                   no-shadow>
+          <div class=" light-bg">
+            <!--<img-loader  src="{{ item.image }}" class="product-image" useImg></img-loader>-->
+            <div class="name" text-center>{{ item.name }}</div>
+            <div text-center>
+                            <span class="price" text-center
+                                  *ngIf="!item.special">SAR {{ item.price | number:'1.2-2' }}</span>
+              <span class="price" text-center
+                    *ngIf="item.special"> SAR {{ item.special | number:'1.2-2'}}</span>
+              <span class="price-lined" text-center
+                    *ngIf="item.special">SAR {{ item.price | number:'1.2-2' }}</span>
+            </div>
+          </div>
+        </ion-slide>
+      </ion-slides>
+
+    </div>
+  </div>
+
+
+
+
+  <div class="min-h">
+    <div class="frame">
+      <h4 text-center>Latest </h4>
+
+      <ion-row class="slide-product" text-center>
+        <ion-col *ngIf="!displayLatest" text-center>
+          <ion-spinner text-center ></ion-spinner>
+        </ion-col>
+      </ion-row>
+      <ion-slides autoplay="5000" *ngIf="displayLatest" class="slide-product" slidesPerView="2.5" >
+
+        <ion-slide *ngFor="let item of latestProducts" class="product product-slide" (click)="viewItem(item)"
+                   no-shadow>
+          <div class=" light-bg">
+            <ion-row no-padding>
+              <ion-col no-padding>
+
+                <!--<img-loader  src="{{ item.image }}" class="product-image" useImg></img-loader>-->
+
+              </ion-col>
+            </ion-row>
+
+            <ion-row no-padding>
+              <ion-col no-padding>
+                <div class="name" text-center>{{ item.name }}</div>
+                <div text-center>
+                            <span class="price" text-center
+                                  *ngIf="!item.special">SAR {{ item.price | number:'1.2-2' }}</span>
+                  <span class="price" text-center
+                        *ngIf="item.special"> SAR {{ item.special | number:'1.2-2'}}</span>
+                  <span class="price-lined" text-center
+                        *ngIf="item.special">SAR {{ item.price | number:'1.2-2' }}</span>
+                </div>                        </ion-col>
+            </ion-row>
+
+          </div>
+        </ion-slide>
+
+
+        <ion-slide class="product product-slide " (click)="goTo('latest')" no-shadow>
+          <div class=" light-bg more">
+            <div class="name more-label" text-center>More..</div>
+          </div>
+        </ion-slide>
+      </ion-slides>
+
+    </div>
+  </div>
+
+  <div class="min-h">
+    <div class="frame">
+      <h4 text-center>Special </h4>
+      <ion-row class="slide-product" text-center>
+        <ion-col *ngIf="!displaySpecial" text-center>
+          <ion-spinner text-center ></ion-spinner>
+        </ion-col>
+      </ion-row>
+      <ion-slides autoplay="5000" *ngIf="displaySpecial" class="slide-product" slidesPerView="2.5">
+        <ion-slide *ngFor="let item of specialProducts" class="product product-slide" (click)="viewItem(item)"
+                   no-shadow>
+          <div class=" light-bg">
+            <!--<img-loader src="{{ item.image }}" class="product-image" useImg></img-loader>-->
+
+            <div class="name" text-center>{{ item.name }}</div>
+            <div text-center>
+                            <span class="price" text-center
+                                  *ngIf="!item.special">SAR {{ item.price | number:'1.2-2' }}</span>
+              <span class="price" text-center
+                    *ngIf="item.special"> SAR {{ item.special | number:'1.2-2'}}</span>
+              <span class="price-lined" text-center
+                    *ngIf="item.special">SAR {{ item.price | number:'1.2-2' }}</span>
+            </div>
+          </div>
+        </ion-slide>
+        <ion-slide class="product product-slide " (click)="goTo('special')" no-shadow>
+          <div class=" light-bg more">
+            <div class="name more-label" text-center>More..</div>
+          </div>
+        </ion-slide>
+      </ion-slides>
+
+    </div>
+  </div>
+
+  <div class="min-h">
+    <div class="frame">
+      <h4 text-center>Best Sellers </h4>
+      <ion-row class="slide-product" text-center>
+        <ion-col *ngIf="!displayBest" text-center>
+          <ion-spinner text-center ></ion-spinner>
+        </ion-col>
+      </ion-row>
+      <ion-slides autoplay="5000" *ngIf="displayBest" class="slide-product" slidesPerView="2.5">
+
+        <ion-slide *ngFor="let item of bestsellersProducts" class="product product-slide" (click)="viewItem(item)"
+                   no-shadow>
+          <div class=" light-bg">
+            <!--<img-loader src="{{ item.image }}" class="product-image" useImg></img-loader>-->
+
+            <div class="name" text-center>{{ item.name }}</div>
+            <div text-center>
+                            <span class="price" text-center
+                                  *ngIf="!item.special">SAR {{ item.price | number:'1.2-2' }}</span>
+              <span class="price" text-center
+                    *ngIf="item.special"> SAR {{ item.special | number:'1.2-2'}}</span>
+              <span class="price-lined" text-center
+                    *ngIf="item.special">SAR {{ item.price | number:'1.2-2' }}</span>
+            </div>
+          </div>
+        </ion-slide>
+
+
+        <ion-slide class="product product-slide " (click)="goTo('bestseller')" no-shadow>
+          <div class=" light-bg more">
+            <div class="name more-label" text-center>More..</div>
+          </div>
+        </ion-slide>
+      </ion-slides>
+
+    </div>
+  </div>
+
+
+</ion-content>

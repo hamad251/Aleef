@@ -1,0 +1,144 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+@import "ionic.globals";
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+
+$text-color: #000;
+$background-color: #fff;
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+        primary: #a0c422,
+        secondary: #36ACE2,
+        danger: #f53d3d,
+        light: #FFFFFF,
+        dark: #262626,
+        favorite: #69BB7B,
+        facebook: #3B5999,
+        googleplus: #DD4C39,
+        bgColor: #EBEBEC,
+        gray: #999,
+        darkGray: #777,
+        orange: #F44336
+);
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/v2/ionicons/
+
+$ionicons-font-path: "../assets/fonts";
+@import "ionic.ionicons";
+
+.loading-text {
+  color: #777;
+  font-size: smaller;
+  margin-top: -1px;
+}
+
+.img-border img {
+  border: 1px solid #ddd;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.name {
+  min-height: 50px;
+  padding-top: 5px;
+}
+
+.price {
+  font-size: 14px !important;
+  color: map-get($colors, primary);
+  display: inline-block;
+}
+
+.price-lined {
+  font-size: 12px !important;
+  color: #777;
+  text-decoration: line-through;
+}
+
+.price_block {
+  text-align: center !important;
+  position: absolute !important;
+  bottom: 3px !important;
+  margin-top: 10px;
+  width: 100%;
+  display: inline-block !important;
+  left: 0;
+}
+
+.price_block_list {
+  text-align: left !important;
+  position: absolute !important;
+  bottom: 14px !important;
+  margin-top: 10px;
+  display: inline-block !important;
+  left: 0;
+}
+
+.cat-slide {
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ddd;
+}
+
+.cat {
+  text-align: center !important;
+}
+
+.cat-name {
+  font-size: 11px;
+  margin-bottom: 10px !important;
+  color: #222;
+}
+
+.swiper-pagination-bullet {
+  background: #dadada !important;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background: map_get($colors, primary) !important;
+}
+
+.menu-inner > ion-content {
+  background-color: #262626 !important;
+}
+
+.item-inner {
+  //color: #9c9c9c !important;
+}
+
+ion-list.list-full-border .item, ion-list.list-full-border .item:first-child, ion-list.list-full-border .item:last-child{
+  border-bottom: 1px solid #343435 !important;
+}
+
+.item-ios ion-icon[item-left],.button-effect{
+  //color: #9c9c9c !important;
+}
+ion-list.list-full-border .item, ion-list.list-full-border .item:first-child, ion-list.list-full-border .item:last-child{
+  border-bottom: 1px solid #ddd !important;
+}

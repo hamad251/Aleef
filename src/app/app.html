@@ -1,0 +1,61 @@
+<ion-menu [content]="content">
+
+  <ion-content class="menu-left">
+    <!-- User profile -->
+    <div padding class="menu-left menu-bg">
+      <a menuClose>
+        <img class="profile-picture" *ngIf="isLoggedIn && userData.custom_fields[2].value !=''"
+             src="{{userData.custom_fields[2].value}}">
+        <img class="profile-picture" *ngIf="isLoggedIn  && userData.custom_fields[2].value =='' "
+             src="assets/img/avatar.png">
+        <img class="profile-picture" *ngIf="!isLoggedIn " src="assets/img/avatar.png">
+        <h4 ion-text color="light" class="user-name">{{userData.firstname}}</h4>
+      </a>
+    </div>
+
+    <ion-list class="list-full-border">
+      <button ion-item menuClose *ngFor="let page of pages" (click)="openPage(page)" color="dark">
+        <ion-icon item-left name="{{ page.icon }}"></ion-icon>
+        {{ page.title }}
+        <ion-badge color="danger" item-right *ngIf="page.count">{{ page.count }}</ion-badge>
+      </button>
+
+      <button ion-item menuClose (click)="logIn()" *ngIf="!isLoggedIn" color="dark">
+
+        <ion-icon item-left name="log-in" (click)="logIn()"></ion-icon>
+        Login
+      </button>
+
+
+      <button ion-item menuClose (click)="logOut()" *ngIf="isLoggedIn" color="dark">
+
+        <ion-icon item-left name="log-out" (click)="logOut()"></ion-icon>
+        Logout
+      </button>
+
+
+    </ion-list>
+
+
+    <ion-list class="list-full-border">
+
+
+      <button ion-item menuClose (click)="useLang('ar')" color="dark" *ngIf="currentLang == 'en'">
+
+        <ion-icon item-left name="ios-globe-outline" (click)="logOut()"></ion-icon>
+        العربية
+      </button>
+
+
+      <button ion-item menuClose (click)="useLang('en')" color="dark" *ngIf="currentLang == 'ar'">
+
+        <ion-icon item-left name="ios-globe-outline" (click)="logOut()"></ion-icon>
+        English
+      </button>
+
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

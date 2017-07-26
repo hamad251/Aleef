@@ -1,0 +1,170 @@
+page-home,
+.home {
+
+  ion-slide{
+    max-height: 220px;
+  }
+  .cat-image {
+    width: 50% !important;
+    margin-bottom: 6px;
+    margin-top: 6px;
+  }
+
+  .cat-name{
+    font-size: small !important;
+    color: #222;
+
+  }
+
+  ion-slides {
+    height: auto;
+    width:100%;
+    min-width:100%
+  }
+
+
+  .cat-list {
+    font-size: 0.8em;
+  }
+
+  .cat-icon {
+    padding: 0.2rem;
+    font-size: 5em;
+    font-weight: bold;
+  }
+
+
+  .product-slide{
+    margin: 4px;
+  }
+  .deals {
+
+    ion-col {
+      padding: 6px;
+      padding-top: 0;
+
+      &:first-child {
+        padding-left: 12px;
+      }
+
+      &:last-child {
+        padding-right: 12px;
+      }
+
+      ion-card {
+        width: 100%;
+        padding: 0.8em;
+        margin: 0;
+
+        ion-badge {
+
+          width: 100%;
+          margin: 5px 0;
+        }
+      }
+    }
+  }
+
+  .price {
+    font-size: 1.2em;
+    color: map-get($colors, primary);
+
+  }
+
+  .name {
+    min-height: 50px;
+    padding-top: 5px;
+    font-size: 14px !important;
+  }
+
+  .frame {
+    background-color: rgba(248, 248, 248, 0.71);
+    border-top: 1px solid #d7d7d7;
+    border-bottom: 1px solid #d7d7d7;
+    margin-bottom: 20px;
+
+    height: 270px;
+  }
+
+
+  .frame-cats {
+    background-color: rgba(248, 248, 248, 0.71);
+    border-top: 1px solid #d7d7d7;
+    border-bottom: 1px solid #d7d7d7;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    min-height: 270px;
+    text-shadow: 0 !important;
+    box-shadow: 0 !important;
+
+  }
+
+  .light-bg {
+    border: 1px solid #ddd !important;
+    border-radius: 4px !important;
+    padding: 3px !important;
+    max-height: 200px;
+    min-height:200px !important;
+
+  }
+
+  .price-lined {
+    color: #777 !important;
+    font-size: 11px !important;
+    text-decoration: line-through !important;
+  }
+
+
+  .slide-image {
+    max-height: 180px !important;
+    min-height: 180px !important;
+
+  }
+
+  .min-h{
+    min-height: 180px;
+  }
+
+
+  .slide-product{
+    max-height:220px !important;
+    display: block !important;
+  }
+
+
+  .product-image img{
+    max-height: 100px;
+    min-height: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    width:100% !important;
+    height:100% !important;
+
+  }
+
+
+  .more{
+    height: 183px;
+    vertical-align: bottom;
+    margin-right:40px;
+
+  }
+
+  .more-label{
+    margin-top: 60%;
+    color:map-get($colors,primary);
+  }
+
+  .slider-img{
+    width: auto;
+    min-width: 100% !important;
+    padding-bottom: 1px;
+  }
+
+  .slider-img img {
+    width: 104% !important;
+    min-width: 104% !important;
+  }
+}
